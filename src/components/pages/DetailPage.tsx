@@ -27,7 +27,7 @@ const DetailPage = () => {
 
     useEffect(()=> {
         dispatch(MovieDetail())
-    },[])
+    },[]);
 
 
     return (
