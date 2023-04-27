@@ -1,9 +1,40 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useAppDispatch} from "../../hooks/dispatch";
+import {useAppSelector} from "../../hooks/useAppSelector";
+import {FetchingPopular, FetchingRated} from "../../Store/Reducer/FetchingMovie";
 
 const TopRated = () => {
+    const dispatch = useAppDispatch()
+    const {users, error, loading} = useAppSelector(state => state.MovieReducer)
+
+
+    useEffect(() => {
+        dispatch(FetchingRated())
+    }, [])
+
+    if (loading) {
+        return <h1>loading...</h1>
+    }
+
+
+    if (error) {
+        return <h1>{error}</h1>
+    }
     return (
-        <div>
-            
+        <div className='container'>
+            <div className='flex  flex-wrap justify-between'>
+                {
+                    users.map(el => (
+                        <div className='m-4'>
+                            <div>
+                                <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${el.poster_path}`} alt=""
+                                     className='w-[250px]' style={{cursor: 'pointer'}}/>
+                            </div>
+                            <h1 className='w-[200px]'>{el.title}</h1>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     );
 };
