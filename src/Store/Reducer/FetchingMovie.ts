@@ -41,5 +41,17 @@ export const FetchingNewPlaying = () => {
         }
     }
 }
+export const FetchingRated = () => {
+    return async (dispatch: AppDispatch) => {
+        try {
+            dispatch(movieFetching())
+            const responsive = await axios.get<any>(`https://api.themoviedb.org/3/movie/top_rated?api_key=${Apikey}&language=en-US&page=1`)
+            const {data} = responsive
+            dispatch(movieFetchingSuccess(data.results))
+        } catch (e: any) {
+            dispatch(movieFetchingError(e = 'efsfghjfrfv'))
+        }
+    }
+}
 
 
