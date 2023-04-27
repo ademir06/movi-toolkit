@@ -1,11 +1,7 @@
 export interface IMovie {
     id: number
     name: string
-
     poster_path: string
-
-    poster_path:string
-
     title: string
     page: number
 }
