@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch} from "../hooks/dispatch";
 import {useAppSelector} from "../hooks/useAppSelector";
-import {changeCurrentPage, FetchingMovie} from "../Store/Reducer/FetchingMovie";
+import {FetchingMovie} from "../Store/Reducer/FetchingMovie";
 
 const Movie = () => {
     const dispatch = useAppDispatch()
@@ -16,7 +16,7 @@ const Movie = () => {
 
 
     useEffect(() => {
-        dispatch(FetchingMovie(page))
+        dispatch(FetchingMovie())
     }, [page])
 
 
@@ -48,7 +48,7 @@ const Movie = () => {
                     pages.map(el => (
                         <button
                             className='border py-2 px-4 mx-4 mt-14'
-                            onClick={() => changeCurrentPage(page)}>
+                        >
                             {el}
                         </button>
                     ))
