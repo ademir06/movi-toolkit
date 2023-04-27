@@ -1,10 +1,10 @@
 import {AppDispatch} from "../store";
 import axios from "axios";
-import {movieFetching, movieFetchingError, movieFetchingSuccess, movieFetchingPage} from "./Movie";
+import {movieFetching, movieFetchingError, movieFetchingSuccess, movieFetchingPage} from "./MovieSlice";
 import {Apikey} from "../../components/Apikey/apikey";
 
 
-export const FetchingMovie = () => {
+export const ActionCreator = () => {
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(movieFetching())

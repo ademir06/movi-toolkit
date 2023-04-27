@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch} from "../hooks/dispatch";
 import {useAppSelector} from "../hooks/useAppSelector";
-import {FetchingMovie} from "../Store/Reducer/FetchingMovie";
+import {ActionCreator} from "../Store/Reducer/ActionCreator";
 
 const Movie = () => {
     const dispatch = useAppDispatch()
@@ -16,7 +16,7 @@ const Movie = () => {
 
 
     useEffect(() => {
-        dispatch(FetchingMovie())
+        dispatch(ActionCreator())
     }, [page])
 
 

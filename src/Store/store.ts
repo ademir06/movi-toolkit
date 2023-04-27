@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import MovieReducer from './Reducer/Movie'
+import MovieReducer from './Reducer/MovieSlice'
 
 const rootSate = combineReducers({
     MovieReducer,

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch} from "../../hooks/dispatch";
 import {useAppSelector} from "../../hooks/useAppSelector";
-import {FetchingNewPlaying} from "../../Store/Reducer/FetchingMovie";
+import {FetchingNewPlaying} from "../../Store/Reducer/ActionCreator";
 
 const NewPlaying = () => {
 
