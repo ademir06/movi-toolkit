@@ -1,6 +1,9 @@
 import {AppDispatch} from "../store";
 import axios from "axios";
 import {movieFetching, movieFetchingError, movieFetchingSuccess, movieFetchingPage} from "./MovieSlice";
+
+import {getDetailMovies, getDetailSuccess, getDetailError} from './DetailSlice'
+
 import {Apikey} from "../../components/Apikey/apikey";
 
 
