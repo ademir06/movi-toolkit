@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useAppDispatch} from "../../hooks/dispatch";
 import {useAppSelector} from "../../hooks/useAppSelector";
 import {FetchingPopular} from "../../Store/Reducer/ActionCreator";
+import {NavLink} from "react-router-dom";
 
 const MoviesPopular = () => {
 
@@ -26,13 +27,15 @@ const MoviesPopular = () => {
             <div className='flex  flex-wrap justify-between'>
                 {
                     users.map(el => (
-                        <div className='m-4'>
-                            <div>
-                                <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${el.poster_path}`} alt=""
-                                     className='w-[250px]' style={{cursor: 'pointer'}}/>
+                        <NavLink to={`movie/${el.id}`}>
+                            <div className='m-4'>
+                                <div>
+                                    <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${el.poster_path}`} alt=""
+                                         className='w-[250px]' style={{cursor: 'pointer'}}/>
+                                </div>
+                                <h1 className='w-[200px]'>{el.title}</h1>
                             </div>
-                            <h1 className='w-[200px]'>{el.title}</h1>
-                        </div>
+                        </NavLink>
                     ))
                 }
             </div>
