@@ -28,5 +28,18 @@ export const FetchingPopular = () => {
         }
     }
 }
+export const FetchingNewPlaying = () => {
+    return async (dispatch: AppDispatch) => {
+        try {
+            dispatch(movieFetching())
+            const responsive = await axios.get<any>(`https://api.themoviedb.org/3/movie/now_playing?api_key=${Apikey}&language=en-US&page=1
+`)
+            const {data} = responsive
+            dispatch(movieFetchingSuccess(data.results))
+        } catch (e: any) {
+            dispatch(movieFetchingError(e = 'efsfghjfrfv'))
+        }
+    }
+}
 
 

@@ -4,6 +4,7 @@ import {useAppSelector} from "../../hooks/useAppSelector";
 import {FetchingPopular} from "../../Store/Reducer/FetchingMovie";
 
 const MoviesPopular = () => {
+
     const dispatch = useAppDispatch()
     const {users, error, loading} = useAppSelector(state => state.MovieReducer)
 
@@ -11,6 +12,15 @@ const MoviesPopular = () => {
     useEffect(() => {
         dispatch(FetchingPopular())
     }, [])
+
+    if (loading) {
+        return <h1>loading...</h1>
+    }
+
+
+    if (error) {
+        return <h1>{error}</h1>
+    }
     return (
         <div className='container'>
             <div className='flex  flex-wrap justify-between'>
