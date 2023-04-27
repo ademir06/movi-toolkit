@@ -2,7 +2,9 @@ import React, {useEffect} from 'react';
 import {useAppDispatch} from "../../hooks/dispatch";
 import {useAppSelector} from "../../hooks/useAppSelector";
 import {FetchingPopular} from "../../Store/Reducer/ActionCreator";
+
 import {NavLink} from "react-router-dom";
+
 
 const MoviesPopular = () => {
 

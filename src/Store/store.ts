@@ -1,6 +1,8 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import MovieReducer from './Reducer/MovieSlice'
+
 import DetailReducer from './Reducer/DetailSlice'
+
 
 const rootSate = combineReducers({
     MovieReducer,
