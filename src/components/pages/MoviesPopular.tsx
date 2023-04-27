@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch} from "../../hooks/dispatch";
 import {useAppSelector} from "../../hooks/useAppSelector";
-import {FetchingPopular} from "../../Store/Reducer/FetchingMovie";
+import {FetchingPopular} from "../../Store/Reducer/ActionCreator";
 
 const MoviesPopular = () => {
 
