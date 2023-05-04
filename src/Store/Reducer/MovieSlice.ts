@@ -5,7 +5,7 @@ interface IMovieState {
     users: IMovie[],
     loading: boolean,
     error: string,
-    page: number
+    language: string
 }
 
 
@@ -13,7 +13,7 @@ const initialState: IMovieState = {
     users: [],
     loading: false,
     error: '',
-    page: 1
+    language: ''
 }
 
 export const MovieSlice = createSlice({
@@ -33,14 +33,14 @@ export const MovieSlice = createSlice({
             state.users = []
             state.error = action.payload
         },
-        movieFetchingPage(state, action) {
-            state.page = action.payload
-        },
+        language(state, action: PayloadAction<string>) {
+            state.language = action.payload
+        }
     }
 })
 
 
-export const {movieFetching, movieFetchingSuccess, movieFetchingError,movieFetchingPage} = MovieSlice.actions
+export const {movieFetching, movieFetchingSuccess, movieFetchingError,language} = MovieSlice.actions
 
 export default MovieSlice.reducer
 

@@ -1,31 +1,30 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IDetail} from "../../types/IMovie";
 
 interface IDetailMovies {
-    detail: IDetail[],
+    detail: Partial<IDetail>,
     loader: boolean
     error: string
 }
 
 const initialState: IDetailMovies = {
-    detail: [],
+    detail: {},
     loader: false,
-    error: ''
-
+    error: '',
 }
 
 export const detailPageSlice = createSlice({
     name: "detailPage",
     initialState,
     reducers: {
-        getDetailMovies(state) {
+        getDetailMovies(state, action: PayloadAction<any>) {
             state.loader = true;
         },
-        getDetailSuccess(state, action) {
+        getDetailSuccess(state, action: PayloadAction<IDetail>) {
             state.loader = false;
             state.detail = action.payload;
         },
-        getDetailError(state, action) {
+        getDetailError(state, action: PayloadAction<string>) {
             state.loader = false;
             state.error = action.payload;
         },
