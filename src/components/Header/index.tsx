@@ -46,7 +46,7 @@ const Header = ({dark, isDarkMode}: IDark) => {
                                     <span
                                         className="self-center text-2xl font-semibold whitespace-nowrap text-white">Flowbite</span>
                                 </NavLink>
-                                <input onKeyDown={(e) => {
+                                <input value={value} onKeyDown={(e) => {
                                     switch (e.key) {
                                         case 'Enter':
                                             handleChange(value)
@@ -83,9 +83,9 @@ const Header = ({dark, isDarkMode}: IDark) => {
                                     className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Now
                                     Playing</p></NavLink>
                             </div>
-                            <button className='bg-white ml-[70px] rounded px-5 py-2 text-gray-900'
+                            <button className='bg-white ml-[20px] rounded px-5 py-2 text-gray-900'
                                     onClick={dark}>{isDarkMode ? ' Light Mode' : ' Dark Mode'}</button>
-                            <div>
+                            <div className='bg-gray-600  text-gray-900 ml-[10px]'>
                                 <select onChange={e => LanguageChange(e)}>
                                     <option value="en-US">en</option>
                                     <option value="ru-RU">ru</option>

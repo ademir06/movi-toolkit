@@ -40,7 +40,7 @@ const NewPlaying = () => {
                             users.map(el => <Card el={el}/>)
                         }
                     </div>
-                    <div className="flex my-9 items-center justify-center">
+                    <div className="flex my-9 items-center justify-center py-20">
                         <ul className="inline-flex -space-x-px">
                             {
                                 pages.map((el) => (
