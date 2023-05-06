@@ -10,7 +10,7 @@ import {getVideoError, getVideoSuccess} from "./VideoSlice";
 import {MovieDetailActorsError, MovieDetailActorsSuccess} from "./DetailMovie";
 
 
-export const MovieDetailSliceCreat = (id: any,lan:string) => {
+export const MovieDetailSliceCreat = (id: any, lan: string) => {
     return async (dispatch: AppDispatch) => {
         try {
             const responsive = await axios.get(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${Apikey}&language=${lan}`)
@@ -34,11 +34,11 @@ export const VideoSlice = (id: any) => {
     }
 }
 
-export const MovieSearch = (current: number, name: any) => {
+export const MovieSearch = (name: string | undefined, lan: string) => {
     return async (dispatch: AppDispatch) => {
         try {
-            dispatch(movieSearch())
-            const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${Apikey}&query=${name}&page=${current}`)
+            // dispatch(movieSearch())
+            const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${Apikey}&query=${name}&language=${lan}`)
             const {data} = res
             dispatch(movieSearchSuccess(data.results))
         } catch (e: any) {
@@ -82,7 +82,7 @@ export const MovieDetail = (movieId: any, lan: string) => {
     }
 }
 
-export const ActionCreator = (lan: string,a:any) => {
+export const ActionCreator = (lan: string, a: any) => {
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(movieFetching())
@@ -106,7 +106,7 @@ export const FetchingPopular = (a: number, lan: string) => {
         }
     }
 }
-export const FetchingNewPlaying = (lan: string,a:any) => {
+export const FetchingNewPlaying = (lan: string, a: any) => {
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(movieFetching())
@@ -118,7 +118,7 @@ export const FetchingNewPlaying = (lan: string,a:any) => {
         }
     }
 }
-export const FetchingRated = (lan: string,a:any) => {
+export const FetchingRated = (lan: string, a: any) => {
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(movieFetching())

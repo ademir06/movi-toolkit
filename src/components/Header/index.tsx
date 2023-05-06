@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
 import {FaSearch} from "react-icons/fa";
 import {useAppDispatch} from "../../hooks/dispatch";
 import {Language} from "../../Store/Reducer/ActionCreator";
 import {useAppSelector} from "../../hooks/useAppSelector";
-
+import logo from '../../img/127224435-a473b0d5-9743-4c80-a43e-b904db7e033e.png'
 interface IDark {
     dark: any
     isDarkMode: boolean
@@ -16,7 +16,6 @@ const Header = ({dark, isDarkMode}: IDark) => {
     const [value, setValue] = useState('')
     const handleChange = (name: any) => {
         if (value.trim() !== '') {
-            setValue('')
             navigate(`/movies/movie-search/${name}`)
         }
         setValue('')
@@ -40,11 +39,8 @@ const Header = ({dark, isDarkMode}: IDark) => {
                     <nav className=" border-gray-200 dark:bg-gray-900">
                         <div className="max-w-screen-xl flex  items-center py-[30px]  mx-auto p-4">
                             <div className='flex items-center'>
-                                <NavLink to={'/'} className="flex items-center">
-                                    <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3"
-                                         alt="Flowbite Logo"/>
-                                    <span
-                                        className="self-center text-2xl font-semibold whitespace-nowrap text-white">Flowbite</span>
+                                <NavLink to={'/'} className="flex items-center w-[170px]">
+                                    <img src={logo} alt=""/>
                                 </NavLink>
                                 <input value={value} onKeyDown={(e) => {
                                     switch (e.key) {

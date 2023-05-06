@@ -35,6 +35,6 @@ export const MovieSearch = createSlice({
     }
 })
 
-export const {movieSearch,movieSearchSuccess,movieSearchError} = MovieSearch.actions
+export const {movieSearch, movieSearchSuccess, movieSearchError} = MovieSearch.actions
 
 export default MovieSearch.reducer
