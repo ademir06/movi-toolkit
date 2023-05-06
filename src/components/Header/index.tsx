@@ -1,10 +1,11 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
 import {FaSearch} from "react-icons/fa";
 import {useAppDispatch} from "../../hooks/dispatch";
 import {Language} from "../../Store/Reducer/ActionCreator";
 import {useAppSelector} from "../../hooks/useAppSelector";
 import logo from '../../img/127224435-a473b0d5-9743-4c80-a43e-b904db7e033e.png'
+
 interface IDark {
     dark: any
     isDarkMode: boolean
@@ -27,9 +28,9 @@ const Header = ({dark, isDarkMode}: IDark) => {
         dispatch(Language(e.target.value))
     }
 
-    const getInputValue = (event: any) => {
-        setValue(event.target.value)
-    }
+    // const getInputValue = (event: any) => {
+    //     setValue(event.target.value)
+    // }
 
 
     return (
@@ -42,25 +43,28 @@ const Header = ({dark, isDarkMode}: IDark) => {
                                 <NavLink to={'/'} className="flex items-center w-[170px]">
                                     <img src={logo} alt=""/>
                                 </NavLink>
-                                <input value={value} onKeyDown={(e) => {
-                                    switch (e.key) {
-                                        case 'Enter':
+                                <form action="">
+                                    <label htmlFor="">
+                                        <input onKeyDown={(e) => {
+                                            switch (e.key) {
+                                                case 'Enter':
+                                                    handleChange(value)
+                                                    break
+                                            }
+                                        }}
+                                               onChange={(e) => navigate(`/movies/movie-search/${e.target.value}`)}
+                                               className='ml-[100px] py-[5px] px-[20px] outline-none rounded text-gray-600'
+                                               type="text" placeholder='search'/>
+                                        <button className='px-4 text-1xl' onClick={() => {
+                                            setValue('')
                                             handleChange(value)
-                                            break
-                                    }
-                                }}
-                                       onChange={(event) => {
-                                           getInputValue(event)
-                                       }
-                                       }
-                                       className='ml-[100px] py-[5px] px-[20px] outline-none rounded text-gray-600'
-                                       type="text" placeholder='search'/>
-                                <button className='px-4 text-1xl' onClick={() => {
-                                    setValue('')
-                                    handleChange(value)
-                                }}>
-                                    <FaSearch
-                                        className='text-white'/></button>
+
+                                        }}>
+                                            <FaSearch
+                                                className='text-white'/></button>
+                                    </label>
+                                </form>
+
 
                             </div>
 

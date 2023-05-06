@@ -22,7 +22,7 @@ const Search = () => {
             {
                 Search.length ?
                     <div className="container">
-                        <div className="movies">
+                        <div className="movies pt-24">
                             {
                                 Search.map(el => <Card el={el}/>)
                             }
